@@ -1,0 +1,123 @@
+.ifeng-hd{
+    height: 0.8rem;
+    overflow: hidden;
+}
+.ifeng-hd img{
+    display: block;
+    width: 1.95rem;
+    height: 0.37rem;
+    margin: 0.22rem auto;
+    /*  margin-top 方向传递问题 
+    解决方法 - 父元素 overflow: hidden; */
+}
+/* nav */
+.ifeng-nav{
+    height: 0.8rem;
+    line-height: 0.8rem;
+    /* 控制子元素的排列方式 -水平（默认） */
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    background-color: palegoldenrod;
+}
+.ifeng-nav a{
+    /* 平分 各占一等份 1/5 100%、5=20% */
+    padding: 0 0.27rem;
+    flex: 1;
+    text-align: center;
+    color: #727272;
+    font-size: 0.36rem;
+}
+.ifeng-nav .current{
+    color: #F44343;
+}
+/* swiper */
+.swiper-slide img {
+    width: 100%;
+}
+.swiper-pagination{
+    text-align: right;
+    color: #004175;
+    font-size: 0.2rem;
+}
+.swiper-pagination-current{
+    font-size: 0.36rem;
+    color: #F44343;
+}
+ .swiper-pagination-fraction{
+    left: -14px;
+    bottom: 30px;
+}
+/* 左图 右文 */
+.ifeng-sec{
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    border-bottom: 1px solid #e4e4e4;
+    padding: .24rem .3rem;
+}
+.ifeng-sec .pic{
+    width: 1.82rem;
+    height: 1.3rem;
+    margin: 0 .32rem 0 0;
+    padding: 0;
+}
+.ifeng-sec .pic img{
+    width: 100%;
+    height: 100%;
+}
+.ifeng-sec .txt{
+    /* 100%-1.82rem=剩下来的大小 */
+    flex: 1;
+    /* 控制子元素-垂直排列-两端对齐 */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: justify;
+}
+.ifeng-sec .txt h2{
+    /* 文字超出2行出现省略号 */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.ifeng-sec .txt p{
+    /* 控制子元素-水平排列-两端对齐 */
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.24rem;
+}
+/* 字体图标 */
+/* 第一步:导入字体图标的路径 - font-face*/
+@font-face{
+    font-family: 'SinaHomeFont';
+    src: url('../font/SinaHomeFont.eot'); /* IE9 Compat Modes */
+    src: url('../font/SinaHomeFont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/SinaHomeFont.woff') format('woff'), /* Modern Browsers */
+    url('../font/SinaHomeFont.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('../font/SinaHomeFont.svg#SinaHomeFont') format('svg'); /* Legacy iOS */
+}
+/* 第二步：引入公用的样式文件 */
+.icon-font{
+    font-family: 'SinaHomeFont';
+    font-weight: normal;
+    font-style: normal;
+    /* 解决字体图标锯齿和不清晰的情况 */
+    -webik-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+}
+/* 第三步：编码 */
+.icon-com::before{
+    content: '\E90D';
+}
+/* 调bug  - 出现口的形状 而不是小图标
+- 路径问题：index.css -css文件夹中
+                    - font文件夹 
+-路径没问题：公用样式没有调取进来 - class
+路径三种：
+平级关系 - 直接写文件名称
+上级关系 - ../
+下级关系 - /
+ */
